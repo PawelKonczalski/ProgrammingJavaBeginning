@@ -1,9 +1,9 @@
 package com.sdacademy.Zadanie8;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
-import java.util.Date;
 
 public class PersonNoMandatory extends Person {
 
@@ -19,11 +19,10 @@ public class PersonNoMandatory extends Person {
         this.interests = interests;
 
         try {
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-            String dateInString = birthDate;
-            Date date = formatter.parse(dateInString);
-            this.birthDate = birthDate;
-        } catch (ParseException e) {
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            LocalDate localDate = LocalDate.parse(birthDate, dateTimeFormatter);
+            this.birthDate = localDate.format(dateTimeFormatter);
+        } catch (DateTimeParseException e) {
             System.out.println("Podaj date w formacie yyyy/MM/dd");
         }
     }
