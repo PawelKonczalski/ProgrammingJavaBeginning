@@ -1,0 +1,162 @@
+1. Napisać metodę przyjmującą jako argument tablicę int[].
+Metoda ma wypisać ile w tablicy znajduje sie liczb ujemnych, ile dodatnich,
+oraz napisać których z nich jest więcej.
+
+2.Napisać metodę power(int a,int n) zwracającą liczbą a podniesioną do potęgi n
+
+3. Napisać metodę zamień (int[] tab, int a, int b), zamieniającą w tablicy int[] dwie liczby miejscami.
+Np dla tablicy {4,7,6,2,33,8}
+dla a=2, b=5, otrzymamy:
+{4,7,8,2,33,6}
+Jeżeli a bądź b jest z poza zakresu tablicy, powinien zostać wyświetlony stosowny komunikat.
+
+4. Napisać metodę, ktora obliczy sumę wszystkich liczb podzielnych przez 5 znajdujących się w tablicy, np
+dla {5,15,8,9,7,5,12} zwróci: 25
+
+5. Napisać metodę rysującą trójkąt z gwiazdek dla zadanego n. Np, dla n=6
+******
+*****
+****
+***
+**
+*
+
+5a trudne) Napisać metodę rysującą odwrócony trójkat z gwiazdek dla zadanego n, Np: dla n=6:
+******
+ *****
+  ****
+   ***
+    **
+     *
+Wskazówka: da się rysować puste znaki: " "
+
+6. Napisac metodę rysujSzachwnice2, ktora dla zadanej liczby n narysuje szachownicę n * n, np: dla n=4
+*#*#
+#*#*
+*#*#
+#*#*
+
+6a trudne) do zadania poprzedniego, szachownicę obrysować ramką (kody ASCII znakow to 205═ 186║, 187╗ 188╝ 200╚ 201╔:
+╔════╗
+║*#*#║
+║#*#*║
+║*#*#║
+║#*#*║
+╚════╝
+
+7.(bardzo trudne). Napisać metodę rysujSzachwnice2, która dla zadanej liczby n narysuje szachownicę n * n,
+przy czym każde pole składa się z czterech znaków. Np, dla n=4 (tu przyjęto, że ciemne pole to #, a jasne *
+
+**##**##
+**##**##
+##**##**
+##**##**
+**##**##
+**##**##
+##**##**
+##**##**
+
+8. Stworzyć klasę Person, która ma mieć obowiązkowe pola
+String firstName,
+String lastName
+String sex (do wyboru tylko male|female).
+Oprócz tego,
+mają być dostępne opcjonalne pola
+int height,
+int weight,
+String birthDate (w formacie yyyy/MM/dd) oraz
+String[] interests (array zainteresowań).
+Stworzyć odpowiednie konstruktory, które pozwolą wprowadzić zarówno dane
+wymagane jak i opcjonalne. Zastanowić się jak najlepiej dodawać
+zainteresowania oraz w jaki sposób można wymusić, aby pole sex przyjęło
+tylko jedną z dwóch dostępnych wartości.
+Zastanowić się, czy pole sex powinno na pewno być typu String
+
+9. Stworzyć klasę Punkt z polami x i y.
+Dodać do tej klasy metodę int odleglosc(Punkt punkt), która będzie liczyła odległość
+naszego punktu od innego punktu.
+Odległość punktu liczymy ze wzoru Math.sqrt((x1-x2)^2+(y1-y2)^2)
+Stworzyc klasę Wektor z polami a i b, które to pola będą oznaczały współrzędne wektora.
+Stwórz dwa konstruktory, jeden będzie jako argumenty przyjmował współrzędne wektora,
+a drugi dwa obiekty typu Punkt i na ich podstawie zostaną wyznaczone współrzędne a i b
+ze wzorów: a=punkt2.x-punkt1.x   b=punkt2.y-punkt1.y
+Dopisz metodę wypisującą współrzędne wektora w formacie [a ; b], np: [1 ; 5]
+
+10. Napisać metodę obliczającą miejsca zerowe funkcji kwadratowej ax^2+bx+c = 0
+obliczPierwiastki(double a, double b, double c)
+krok 1 obliczamy delta=b^2-4ac
+Jeżeli delta>0 mamy dwa rozwiązania:
+x1= (-b-sqrt(delta))/(2a)
+x2= (-b+sqrt(delta))/(2a)
+Jeżeli delta=0 mamy jedno rozwiązanie:
+x1= -b/(2a)
+Jeżeli delta<0 brak rozwiązań
+
+zwracany typ metody obliczPierwiastki niech będzie tablicą double[],
+która w zależności od ilości rozwiązań będzie miała 1,2, lub zero elementów;
+
+10a) Napisz obiektową wersję powyższego zadania
+Zdefiniuj interfejs PierwiastekRownania z metoda pokazWynik()
+i trzy klasy go implementujące: PodwojnyPierwiastekRownania, PojedynczyPierwiastekRownania, BrakPierwiastkaRownania
+metoda obliczPierwiastki powinna teraz zwracać implementer interfejsu PierwiastekRownania.
+Zastanów się jakie pola powinien mieć każdy z trzech możliwych implementerów.
+Do każdego z nich dodaj implementację metody pokazWynik()
+
+DODATKOWE:
+
+1) Kolejna wersja programu szachownica. Wczytujemy dwa parametry k oraz n.
+k oznacza z ilu znakow bedzie sie skladal wymiar jednego pola szachownicy.
+n oznacza po prostu rozmiar szachownicy. Zatem dla k=5 i n=4:
+Każde pole składa się z # o wymiarach 5x5, natomiast takich pól jest 4x4
+
+*****#####*****#####
+*****#####*****#####
+*****#####*****#####
+*****#####*****#####
+*****#####*****#####
+#####*****#####*****
+#####*****#####*****
+#####*****#####*****
+#####*****#####*****
+#####*****#####*****
+*****#####*****#####
+*****#####*****#####
+*****#####*****#####
+*****#####*****#####
+*****#####*****#####
+#####*****#####*****
+#####*****#####*****
+#####*****#####*****
+#####*****#####*****
+#####*****#####*****
+
+2) w zależności od podanego parametru n program ma rysować
+kolejno zagnieżdżone ramki, w następujący sposób:
+
+dla n=1
+#
+
+dla n=2
+
+#####
+#   #
+# # #
+#   #
+#####
+
+dla n=3
+
+#########
+#       #
+# ##### #
+# #   # #
+# # # # #
+# #   # #
+# ##### #
+#       #
+#########
+
+i tak dalej..
+
+
+
